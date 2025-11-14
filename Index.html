@@ -1,30 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Studio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Axvora AI — Intelligent Market Insights</title>
+  <meta name="description" content="Axvora AI - Intelligent market insights and simple, data-driven guidance. Built by Kartik Mishra." />
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="container">
-        <h1 class="title">Upload Studio</h1>
-
-        <div class="upload-box" id="drop-area">
-            <p>Drag & Drop your video here</p>
-            <span>or</span>
-            <label for="file-input" class="btn">Browse Files</label>
-            <input type="file" id="file-input" accept="video/*">
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="logo">A</div>
+        <div class="brand-text">
+          <div class="title">Axvora AI</div>
+          <div class="subtitle">Intelligent Market Insights</div>
         </div>
-
-        <video id="preview" controls></video>
-
-        <button id="upload-btn" class="upload-btn">Upload Video</button>
-
-        <p id="status"></p>
+      </div>
+      <nav class="nav">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#ai">AI</a>
+        <a href="#demo">Demo</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="wrap">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <h1>Axvora AI — Intelligent Market Assistant</h1>
+        <p class="lead">Make smarter financial decisions with simple, data-driven insights. Clear explanations, real-time monitoring, and high-confidence signals for beginners.</p>
+        <div class="cta">
+          <a class="btn primary" href="#demo">Watch Demo</a>
+          <a class="btn ghost" href="#about">About Kartik</a>
+        </div>
+        <ul class="quick-features">
+          <li>Real-time price monitoring</li>
+          <li>News sentiment analysis</li>
+          <li>Risk indicators & learning tips</li>
+        </ul>
+      </div>
+
+      <aside class="hero-right card">
+        <div class="mock-ticker">
+          <div class="ticker-top">
+            <div class="symbol">AXV · MARKET</div>
+            <div class="status">Live • AI Confidence</div>
+          </div>
+          <div class="price">₹ 4,432.12</div>
+          <div class="chart-spark" aria-hidden="true">
+            <div class="bar" style="height:28%"></div><div class="bar" style="height:46%"></div><div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:34%"></div><div class="bar" style="height:78%"></div>
+          </div>
+          <div class="ticker-bottom">AI Signal: Neutral — Watch</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" class="section card">
+      <h2>The Problem</h2>
+      <p>Many people want to invest or trade but find the market confusing. Constant price changes, complex charts and lack of knowledge cause random decisions and loss of confidence. Without proper guidance or real-time info, safe trading is hard.</p>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="solution" class="section card">
+      <h2>Solution</h2>
+      <p>Axvora AI simplifies trading with clear insights, real-time updates and AI-driven recommendations. It explains the *why* behind suggestions and focuses on improving decision reliability rather than promising guaranteed profits.</p>
+      <div class="grid-3">
+        <div class="small-card"><h3>Clear Insights</h3><p>Plain-language explanations for beginners.</p></div>
+        <div class="small-card"><h3>Realtime</h3><p>Price feeds and news alerts continuously.</p></div>
+        <div class="small-card"><h3>Risk Awareness</h3><p>Personalised risk indicators to reduce impulsive trades.</p></div>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section id="ai" class="section card">
+      <h2>AI Components</h2>
+      <p>Axvora uses a multi-layer AI stack to provide high-confidence signals:</p>
+      <div class="grid-3">
+        <div class="small-card"><h3>Machine Learning</h3><p>Trend detection and anomaly identification.</p></div>
+        <div class="small-card"><h3>NLP</h3><p>Financial news & sentiment analysis in real time.</p></div>
+        <div class="small-card"><h3>Time-Series</h3><p>Robust forecasting with sliding windows and validation.</p></div>
+      </div>
+      <p class="muted">Data needs: historical prices, market indicators, economic reports, and news streams.</p>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo" class="section card">
+      <h2>Demo</h2>
+      <p class="lead-muted">Watch a short demo of Axvora AI (2–3 minutes). Place your MP4 in <code>assets/videos/demo.mp4</code>.</p>
+
+      <div class="video-wrap">
+        <video id="demoVideo" controls preload="metadata" poster="assets/video-poster.jpg">
+          <source src="assets/videos/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div id="videoHint" class="muted">If the video does not load, ensure file exists at <code>assets/videos/demo.mp4</code>.</div>
+      </div>
+    </section>
+
+    <!-- FUTURE / SCALE -->
+    <section id="future" class="section card">
+      <h2>Scalability & Future Scope</h2>
+      <ul>
+        <li>Multi-asset support (stocks, commodities, crypto)</li>
+        <li>Broker API integrations</li>
+        <li>Cloud-hosted inference and horizontal scaling</li>
+        <li>Personalised learning modules and coaching</li>
+      </ul>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section card about">
+      <h2>About the Creator</h2>
+      <div class="about-row">
+        <img src="assets/profile.jpg" alt="Kartik Mishra" class="avatar" onerror="this.src='https://via.placeholder.com/180'">
+        <div>
+          <h3>Kartik Mishra — 18, Student</h3>
+          <p class="muted">National Institute of Electronics and Information Technology, Gorakhpur.</p>
+          <p>I built Axvora AI to make market information accessible and empower people to trade confidently using clear, data-driven AI insights.</p>
+          <p class="muted"><strong>Email:</strong> contact@axvora.ai (placeholder)</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">© <span id="year"></span> Axvora AI • Built by Kartik Mishra</div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
