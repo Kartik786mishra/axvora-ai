@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Axvora AI — Intelligent Market Insights</title>
+  <meta name="description" content="Axvora AI - Intelligent market insights and simple, data-driven guidance to help beginners trade confidently. Created by Kartik Mishra." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <!-- Google fonts (system-safe fallback included) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#000;
+      --panel: rgba(8,12,18,0.6);
+      --glass: rgba(255,255,255,0.04);
+      --accent:#00d4ff;
+      --muted:#9aa6b2;
+      --glass-border: rgba(0,212,255,0.12);
+      --radius:14px;
+      --maxw:1150px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#02060a 0%, #000 60%);
+      color:#eaf6ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;}
+
+/* Header */
+    header{
+      position:sticky;top:12px;z-index:60;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;backdrop-filter: blur(6px);
+      padding:12px 18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-dot{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0066ff);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,212,255,0.08)}
+    .logo-dot strong{color:#001; font-weight:800}
+    .brand h1{font-size:1.05rem;margin:0;color:var(--accent);letter-spacing:0.4px}
+    .brand p{margin:0;font-size:.78rem;color:var(--muted)}
+
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:#cfeffd;text-decoration:none;font-weight:600;font-size:.88rem;padding:8px 10px;border-radius:10px;transition:all .18s}
+    nav a:hover{background:rgba(0,212,255,0.06);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,212,255,0.03)}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0;
+      min-height:68vh;
+    }
+    .hero-left h2{color:var(--accent);font-size:1rem;margin:0 0 6px 0}
+    .hero-left h1{font-size:2.2rem;margin:6px 0 14px 0;line-height:1.02}
+    .lead{color:var(--muted);font-size:1.03rem;margin-bottom:18px}
+
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{
+      background:linear-gradient(90deg,var(--accent),#0099ff);
+      color:#002; border:none;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;
+      box-shadow:0 10px 30px rgba(0,212,255,0.06);text-decoration:none;
+    }
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#eaf6ff;font-weight:600}
+
+    /* Visual card */
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      padding:18px;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,0.7)
+    }
+    .mock{
+      width:100%;height:320px;border-radius:12px;background:linear-gradient(180deg,#00151a, #001022);
+      border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;padding:14px;gap:12px;justify-content:center;
+    }
+    .ticker{display:flex;gap:10px;align-items:center;color:var(--muted);font-weight:700}
+    .price{font-size:2.2rem;color:#dffcff;font-weight:800}
+    .chart{
+      height:120px;background:linear-gradient(90deg, rgba(0,212,255,0.02), transparent);border-radius:8px;
+      display:flex;align-items:flex-end;padding:10px;gap:6px;
+    }
+    .bar{width:8%;height:30%;background:linear-gradient(180deg,var(--accent), rgba(0,212,255,0.2));border-radius:6px;opacity:.95}
+
+    /* Sections */
+    section{padding:58px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    h3.section-title{font-size:1.1rem;color:var(--accent);margin-bottom:8px}
+    p.lead-muted{color:var(--muted);max-width:900px;margin:8px 0 20px 0}
+
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      min-height:120px;display:flex;flex-direction:column;gap:8px;
+    }
+    .card h4{margin:0;color:#e6fbff}
+    .card p{color:var(--muted);font-size:.95rem;margin:0}
+
+    /* video */
+    .video-wrap{display:flex;flex-direction:column;gap:12px;align-items:center}
+    video{width:100%;max-width:900px;border-radius:12px;border:1px solid var(--glass-border);background:#000}
+    .hint{color:var(--muted);font-size:.94rem}
+
+    /* about */
+    .about-grid{display:grid;grid-template-columns:210px 1fr;gap:22px;align-items:center}
+    .avatar{
+      width:200px;height:200px;border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);
+      background:linear-gradient(180deg, #001a22, #001022);display:flex;align-items:center;justify-content:center;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .bio p{color:var(--muted);margin-top:8px}
+
+    /* footer */
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:.95rem}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr}
+      .avatar{width:150px;height:150px;margin:0 auto}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .hero-left h1{font-size:1.5rem}
+      .lead{font-size:.98rem}
+    }
+
+    /* subtle float accent */
+    .accent-orb{
+      position:fixed;right:-60px;top:40%;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 40% 40%, rgba(0,212,255,0.14), transparent 35%);filter:blur(28px);z-index:0;pointer-events:none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="accent-orb" aria-hidden="true"></div>
+
+  <div class="wrap" role="main">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <div class="logo-dot"><strong>A</strong></div>
+        <div>
+          <h1>Axvora AI</h1>
+          <p>Intelligent Market Insights</p>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#components">AI</a>
+        <a href="#demo">Demo</a>
+        <a href="#future">Future</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h2 id="hero-title">Axvora AI — Intelligent Market Assistant</h2>
+        <h1>Make smarter financial decisions with simple, data-driven insights.</h1>
+        <p class="lead">Axvora AI provides clear explanations, real-time monitoring and high-confidence signals using ML, NLP and time-series analysis — designed for beginners and curious investors.</p>
+        <div class="cta-row">
+          <a class="btn" href="#demo">Watch Demo</a>
+          <a class="btn secondary" href="#about">About Kartik</a>
+        </div>
+      </div>
+
+      <div class="panel" aria-hidden="false">
+        <div class="mock" role="img" aria-label="Axvora demo mockup">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="ticker">AXV · MARKET</div>
+              <div class="price">₹ 4,432.12</div>
+            </div>
+            <div style="text-align:right;color:var(--muted);font-weight:700">Live • AI Confidence</div>
+          </div>
+
+          <div class="chart" aria-hidden="true">
+            <!-- simple bars to show a chart feel -->
+            <div class="bar" style="height:26%"></div>
+            <div class="bar" style="height:38%"></div>
+            <div class="bar" style="height:48%"></div>
+            <div class="bar" style="height:22%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:42%"></div>
+            <div class="bar" style="height:64%"></div>
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:56%"></div>
+            <div class="bar" style="height:36%"></div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <small style="color:var(--muted)">AI Signal: Neutral → Watch</small>
+            <div style="font-size:.88rem;color:var(--muted)">Updated just now</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" aria-labelledby="prob">
+      <h3 class="section-title" id="prob">The Problem</h3>
+      <p class="lead-muted">Many people want to invest or trade but are overwhelmed by charts, numbers and fast price movements. Lack of clear guidance and real-time context leads to guesswork, emotional decisions and loss of confidence.</p>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="solution" aria-labelledby="sol">
+      <h3 class="section-title" id="sol">Our Solution</h3>
+      <p class="lead-muted">Axvora AI simplifies trading with an easy-to-understand dashboard, real-time alerts and AI-driven, data-backed signals that explain the *why* behind recommendations. The system focuses on increasing reliability, not guaranteeing outcomes.</p>
+
+      <div class="grid" style="margin-top:18px">
+        <div class="card">
+          <h4>Clear Insights</h4>
+          <p>Plain-language explanations and visual cues so beginners understand market moves.</p>
+        </div>
+        <div class="card">
+          <h4>Real-time Monitoring</h4>
+          <p>Continuous updates and alerts from price feeds and news streams.</p>
+        </div>
+        <div class="card">
+          <h4>Risk Awareness</h4>
+          <p>Personalised risk indicators and suggested actions to reduce impulsive trades.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI COMPONENTS -->
+    <section id="components">
+      <h3 class="section-title">How Axvora AI Works</h3>
+      <p class="lead-muted">A multi-layer AI stack combining machine learning, NLP and time-series analysis to detect patterns, assess sentiment and produce high-confidence signals.</p>
+
+      <div class="grid" style="margin-top:18px">
+        <div class="card">
+          <h4>Machine Learning</h4>
+          <p>Supervised models for trend detection and anomaly identification.</p>
+        </div>
+        <div class="card">
+          <h4>NLP</h4>
+          <p>News & social sentiment extraction to capture market-moving events in real time.</p>
+        </div>
+        <div class="card">
+          <h4>Time-Series</h4>
+          <p>Forecasting pipelines using sliding windows and robust validation to estimate probabilities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo">
+      <h3 class="section-title">Demo</h3>
+      <p class="lead-muted">Watch a short recorded demo explaining Axvora AI: features, demo screens, and how the AI generates insights.</p>
+
+      <div class="video-wrap">
+        <!-- Add your video at videos/demo.mp4 -->
+        <video id="demoVideo" controls preload="metadata" poster="assets/video-poster.jpg">
+          <source src="videos/demo.mp4" type="video/mp4">
+          Your browser does not support this video. Please update or use a modern browser.
+        </video>
+        <div class="hint">Tip: Upload your MP4 to <code>videos/demo.mp4</code> inside the project folder before deploying.</div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY & FUTURE -->
+    <section id="future">
+      <h3 class="section-title">Technology & Future Scope</h3>
+      <p class="lead-muted">Built with Python ML pipelines, NLP stacks, cloud deployment and public market datasets. Future: broker integrations, mobile app, multi-asset support and personalised coaching modules.</p>
+
+      <div class="grid" style="margin-top:18px">
+        <div class="card">
+          <h4>Tech Stack</h4>
+          <p>Python, scikit-learn / PyTorch, transformers, Pandas, Docker, Cloud functions.</p>
+        </div>
+        <div class="card">
+          <h4>Scale</h4>
+          <p>Cloud-hosted inference, redis queues for streams and horizontal scaling for thousands of users.</p>
+        </div>
+        <div class="card">
+          <h4>Privacy & Safety</h4>
+          <p>No investment guarantees. Tool focuses on education and probabilistic insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h3 class="section-title">About the Creator</h3>
+      <div class="about-grid">
+        <div class="avatar panel">
+          <!-- replace with your photo at assets/profile.jpg -->
+          <img src="assets/profile.jpg" alt="Kartik Mishra — Creator of Axvora AI" onerror="this.src='https://via.placeholder.com/400x400?text=Kartik+Mishra'">
+        </div>
+        <div class="bio">
+          <h4>Kartik Mishra — 18, Student</h4>
+          <p class="lead-muted">I am a student at the National Institute of Electronics and Information Technology, Gorakhpur. I built Axvora AI to make market information accessible and to empower people to make smarter financial decisions through clear AI-driven guidance.</p>
+          <p style="margin-top:12px;color:var(--muted)"><strong>Email:</strong> contact@axvora.ai (placeholder)</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-bottom:10px">© <span id="year"></span> Axvora AI • Built by Kartik Mishra</div>
+      <div style="color:var(--muted)">Share: 
+        <a href="#" style="color:var(--accent);text-decoration:none;margin-left:10px">LinkedIn</a> •
+        <a href="#" style="color:var(--accent);text-decoration:none;margin-left:10px">GitHub</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Smooth in-page scrolling for modern browsers
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(!target) return;
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // Accessibility: if video not present, show hint
+    const video = document.getElementById('demoVideo');
+    video.addEventListener('error', ()=> {
+      const hint = document.querySelector('.hint');
+      hint.innerText = 'Video not found. Upload your MP4 to videos/demo.mp4 and redeploy.';
+    });
+  </script>
+</body>
+</html>
